@@ -1,0 +1,86 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MISPELIS</title>
+    <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon">
+    <style>
+        body{
+    background: #202020;
+    color: whitesmoke;
+    align-items: center;
+}
+
+.navBar {
+    background: white; /* Fondo blanco para el navbar */
+    padding: 10px 0; /* Añadido padding para el navbar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border-bottom: 1px solid #ddd; /* Borde inferior sutil */
+    border-radius: 30px;
+}
+
+.navBar ul {
+    display: flex;
+    justify-content: space-between; /* Centra el menú horizontalmente */
+    padding: 0;
+    margin: 0;
+}
+
+.navBar ul li {
+    list-style: none;
+    margin: 0 15px; /* Espaciado entre los elementos del menú */
+}
+
+.navBar ul li a {
+    color: #333; /* Color de texto oscuro para contraste */
+    text-decoration: none;
+    padding: 10px 15px; /* Espaciado interno para los enlaces */
+    border-radius: 20px; /* Bordes redondeados */
+    transition: background 0.3s, color 0.3s; /* Transición suave para el hover */
+    display: inline-block; /* Para que el padding funcione correctamente */
+}
+
+.navBar ul li a:hover {
+    color: white; /* Color de texto en hover */
+    background: #1a1a1a; /* Gris claro */
+}
+.container{
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <nav class="navBar container">
+        <ul>
+            <li><a href="{% url 'index' %}">Home Page</a></li>
+            <li><a href="{% url 'peliculas' %}">Peliculas</a></li>
+            <li><a href="{% url 'about' %}">About</a></li>
+            {% if is_content_manager %}
+            <li><a href="{% url 'create_pelicula' %}">Crear Pelicula</a></li>
+            {% endif %}
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            {% else %}
+            <li><a href="{% url 'signup' %}">Sign Up</a></li>
+            <li><a href="{% url 'login' %}">Log In</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    
+    
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+    {% block extra_scripts %}
+    {% endblock %}
+</body>
+</html>

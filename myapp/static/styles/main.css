@@ -1,0 +1,45 @@
+body{
+    background: #202020;
+    color: whitesmoke;
+    align-items: center;
+}
+
+.navBar {
+    background: white; /* Fondo blanco para el navbar */
+    padding: 10px 0; /* Añadido padding para el navbar */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    border-bottom: 1px solid #ddd; /* Borde inferior sutil */
+}
+
+.navBar ul {
+    display: flex;
+    justify-content: center; /* Centra el menú horizontalmente */
+    padding: 0;
+    margin: 0;
+}
+
+.navBar ul li {
+    list-style: none;
+    margin: 0 15px; /* Espaciado entre los elementos del menú */
+}
+
+.navBar ul li a {
+    color: #333; /* Color de texto oscuro para contraste */
+    text-decoration: none;
+    padding: 10px 15px; /* Espaciado interno para los enlaces */
+    border-radius: 20px; /* Bordes redondeados */
+    transition: background 0.3s, color 0.3s; /* Transición suave para el hover */
+    display: inline-block; /* Para que el padding funcione correctamente */
+}
+
+.navBar ul li a:hover {
+    color: white; /* Color de texto en hover */
+    background: aquamarine; /* Color de fondo en hover */
+}
+.container{
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 0;
+}
+
+
